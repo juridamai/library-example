@@ -79,6 +79,12 @@
                 <span>Data Buku</span></a>
         </li>
 
+        <li class="nav-item">
+            <a class="nav-link" href="{{route('customer.index')}}">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Data Customer</span></a>
+        </li>
+
 
     </ul>
     <!-- End of Sidebar -->

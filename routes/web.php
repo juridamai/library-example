@@ -47,6 +47,13 @@ Route::group(['middleware' => 'auth:user'], function () {
         Route::get('/book/edit/{id}', [App\Http\Controllers\BookController::class, 'edit'])->name('book.edit');
         Route::post('/book/update', [App\Http\Controllers\BookController::class, 'update'])->name('book.update');
 
+        Route::get('/customer', [App\Http\Controllers\CustomerController::class, 'index'])->name('customer.index');
+        Route::get('/customer/create', [App\Http\Controllers\CustomerController::class, 'create'])->name('customer.create');
+        Route::post('/customer/store', [App\Http\Controllers\CustomerController::class, 'store'])->name('customer.store');
+        Route::get('/customer/destroy/{id}', [App\Http\Controllers\CustomerController::class, 'destroy'])->name('customer.destroy');
+        Route::get('/customer/edit/{id}', [App\Http\Controllers\CustomerController::class, 'edit'])->name('customer.edit');
+        Route::post('/customer/update', [App\Http\Controllers\CustomerController::class, 'update'])->name('customer.update');
+
     });
 
     Route::get('/logout', [App\Http\Controllers\AuthController::class, 'logout'])->name('auth.logout');

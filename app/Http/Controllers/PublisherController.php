@@ -7,8 +7,6 @@ use Illuminate\Http\Request;
 #import model
 use App\Models\Publisher;
 
-use Barryvdh\DomPDF\Facade\Pdf;
-
 class PublisherController extends Controller
 {
     public function index(){
