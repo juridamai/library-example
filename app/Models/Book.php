@@ -24,8 +24,15 @@ class Book extends Model
         return $this->belongsTo(Publisher::class,'publisher_id');
     }
 
-    public function returnItem($qty)
+    public function returnStock()
     {
-        $this->update(['stock'=> $this->stock + $qty]);
+        $this->increment('stock');
     }
+
+    public function reduceStock()
+    {
+        $this->decrement('stock');
+    }
+
+
 }

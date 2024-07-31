@@ -35,7 +35,7 @@ class TransactionSeeder extends Seeder
             [
                 'transaction_id' => 1,
                 'book_id' => 2,
-                'qty' => 2
+                'qty' => 1
             ]
         );
     }

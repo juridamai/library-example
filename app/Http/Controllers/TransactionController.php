@@ -46,7 +46,7 @@ class TransactionController extends Controller
             #ReturnItemsStock
             foreach ($transaction->item as $row){
                 $book = Book::findOrFail($row->book_id);
-                $book->returnItem($row->qty);
+                $book->returnStock();
             }
 
             $transaction->status = 0;
