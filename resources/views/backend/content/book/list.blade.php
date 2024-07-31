@@ -35,7 +35,7 @@
                             <tr>
                                 <td>{{ ($book->currentpage()-1) * $book->perpage() + $key + 1 }}</td>
                                 <td>{{$row->title}}</td>
-                                <td>{{$row->date_of_issue}}</td>
+                                <td>{{dateFormat($row->date_of_issue)}}</td>
                                 <td>{{$row->stock}}</td>
                                 <td>{{$row->publisher->name}}</td>
                                 <td>

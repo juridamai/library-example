@@ -37,7 +37,7 @@
                                 <td>{{ ($customer->currentpage()-1) * $customer->perpage() + $key + 1 }}</td>
                                 <td>{{$row->member_id}}</td>
                                 <td>{{$row->name}}</td>
-                                <td>{{$row->dob}}</td>
+                                <td>{{dateFormat($row->dob)}}</td>
                                 <td>
                                     <a href="{{route('customer.edit',$row->id)}}" class="btn btn-sm btn-secondary"><i class="fa fa-edit"></i> Ubah</a>
                                     <a href="{{route('customer.destroy',$row->id)}}" class="btn btn-sm btn-secondary"

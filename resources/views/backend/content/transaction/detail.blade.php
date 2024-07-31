@@ -15,7 +15,12 @@
                 </div>
                 <div class="mb-3 row">
                     <label class="col-sm-4 col-form-label">Tanggal</label>
-                    <label class="col-sm-8 col-form-label">{{$transaction->date}}</label>
+                    <label class="col-sm-8 col-form-label">{{dateFormat($transaction->date)}}</label>
+                </div>
+
+                <div class="mb-3 row">
+                    <label class="col-sm-4 col-form-label">Waktu</label>
+                    <label class="col-sm-8 col-form-label">{{timeFormat($transaction->date)}}</label>
                 </div>
 
                 <div class="mb-3 row">

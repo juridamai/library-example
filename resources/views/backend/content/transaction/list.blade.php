@@ -26,6 +26,7 @@
                             <th>No</th>
                             <th>Customer</th>
                             <th>Tanggal</th>
+                            <th>Waktu</th>
                             <th>Status</th>
                             <th>Aksi</th>
                         </tr>
@@ -36,7 +37,8 @@
                             <tr>
                                 <td>{{ ($transaction->currentpage()-1) * $transaction->perpage() + $key + 1 }}</td>
                                 <td>{{$row->customer->name}}</td>
-                                <td>{{$row->date}}</td>
+                                <td>{{dateFormat($row->date)}}</td>
+                                <td>{{timeFormat($row->date)}}</td>
                                 <td>{{($row->status == 1)?"Belum dikembalikan" : "Sudah kembali"}}</td>
                                 <td>
                                     <a href="{{route('transaction.detail',$row->id)}}" class="btn btn-sm btn-secondary"><i class="fa fa-eye"></i> Detail</a>
