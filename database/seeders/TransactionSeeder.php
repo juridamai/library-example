@@ -18,7 +18,8 @@ class TransactionSeeder extends Seeder
         DB::table('transactions')->insert(
             [
                 'customer_id' => 1,
-                'date' => '2023-09-09 12:00:00'
+                'date' => '2023-09-09 12:00:00',
+                'date_must_return' => '2023-09-16 12:00:00',
             ]
         );
 
@@ -27,6 +28,14 @@ class TransactionSeeder extends Seeder
                 'transaction_id' => 1,
                 'book_id' => 1,
                 'qty' => 1
+            ]
+        );
+
+        DB::table('item_transactions')->insert(
+            [
+                'transaction_id' => 1,
+                'book_id' => 2,
+                'qty' => 2
             ]
         );
     }

@@ -29,7 +29,8 @@
         },
         "files": [
             "app/Helpers/dateFormat.php",
-            "app/Helpers/timeFormat.php"
+            "app/Helpers/timeFormat.php",
+            "app/Helpers/idrFormat.php"
         ]
 
     },

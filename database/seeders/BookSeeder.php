@@ -17,7 +17,8 @@ class BookSeeder extends Seeder
     {
         DB::table('books')->insert(
             [
-                ['code'=>'073a3501-b891-4028-953c-a26cdacafcce','title' => 'Lorem Ipsum','date_of_issue' => '2023-04-10','stock' => 23,'publisher_id' => 1]
+                ['code'=>'073a3501-b891-4028-953c-a26cdacafcce','title' => 'Lorem Ipsum','date_of_issue' => '2023-04-10','stock' => 23,'publisher_id' => 1],
+                ['code'=>'073a3501-b891-4028-853c-a26cdacafcce','title' => 'Lorem Ipsum 2','date_of_issue' => '2023-04-10','stock' => 23,'publisher_id' => 1],
             ]
         );
     }

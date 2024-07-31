@@ -18,8 +18,9 @@ return new class extends Migration
             $table->unsignedBigInteger('customer_id');
             $table->dateTime('date');
             $table->dateTime('return_date')->nullable();
+            $table->dateTime('date_must_return');
             $table->boolean('status')->default(1); #1New #0Return
-            $table->integer('penaltiy')->default(0);
+            $table->integer('penalty')->default(0);
             $table->foreign('customer_id')->references('id')->on('customers');
             $table->timestamps();
         });

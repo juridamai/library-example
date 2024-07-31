@@ -14,8 +14,9 @@ class Transaction extends Model
         'customer_id',
         'date',
         'return_date',
+        'date_must_return',
         'status',
-        'penaltiy',
+        'penalty',
     ];
 
     public function customer(){

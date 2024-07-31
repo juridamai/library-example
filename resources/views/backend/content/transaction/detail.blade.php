@@ -14,19 +14,28 @@
                     <label class="col-sm-8 col-form-label">{{$transaction->customer->name}}</label>
                 </div>
                 <div class="mb-3 row">
-                    <label class="col-sm-4 col-form-label">Tanggal</label>
-                    <label class="col-sm-8 col-form-label">{{dateFormat($transaction->date)}}</label>
+                    <label class="col-sm-4 col-form-label">Tanggal Pinjam</label>
+                    <label class="col-sm-8 col-form-label">{{dateFormat($transaction->date)}} {{timeFormat($transaction->date)}}</label>
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-sm-4 col-form-label">Waktu</label>
-                    <label class="col-sm-8 col-form-label">{{timeFormat($transaction->date)}}</label>
+                    <label class="col-sm-4 col-form-label">Tanggal Kembali</label>
+                    <label class="col-sm-8 col-form-label">{{dateFormat($transaction->date_must_return)}}</label>
                 </div>
+
 
                 <div class="mb-3 row">
                     <label class="col-sm-4 col-form-label">Status</label>
                     <label class="col-sm-8 col-form-label">{{($transaction->status == 1)?"Belum dikembalikan" : "Sudah kembali"}}</label>
                 </div>
+
+                @if($transaction->penalty <> 0)
+                    <div class="mb-3 row">
+                        <label class="col-sm-4 col-form-label">Denda</label>
+                        <label class="col-sm-8 col-form-label">{{idrFormat($transaction->penalty)}}</label>
+                    </div>
+                @endif
+
                 <p>&nbsp;</p>
                 <h5>Buku yang dipinjam</h5>
 

@@ -23,4 +23,9 @@ class Book extends Model
     public function publisher(){
         return $this->belongsTo(Publisher::class,'publisher_id');
     }
+
+    public function returnItem($qty)
+    {
+        $this->update(['stock'=> $this->stock + $qty]);
+    }
 }
