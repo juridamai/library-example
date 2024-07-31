@@ -22,6 +22,10 @@ class TransactionController extends Controller
         return view('backend.content.transaction.detail',compact('transaction'));
     }
 
+    public function create(){
+        return view('backend.content.transaction.create');
+    }
+
     public function return(Request $request)
     {
         DB::beginTransaction();
