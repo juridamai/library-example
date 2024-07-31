@@ -41,6 +41,7 @@ Route::group(['middleware' => 'auth:user'], function () {
         Route::post('/publisher/update', [App\Http\Controllers\PublisherController::class, 'update'])->name('publisher.update');
 
         Route::get('/book', [App\Http\Controllers\BookController::class, 'index'])->name('book.index');
+        Route::get('/book/detail/{id}', [App\Http\Controllers\BookController::class, 'detail'])->name('book.detail');
         Route::get('/book/create', [App\Http\Controllers\BookController::class, 'create'])->name('book.create');
         Route::post('/book/store', [App\Http\Controllers\BookController::class, 'store'])->name('book.store');
         Route::get('/book/destroy/{id}', [App\Http\Controllers\BookController::class, 'destroy'])->name('book.destroy');

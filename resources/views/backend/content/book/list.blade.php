@@ -23,6 +23,7 @@
                         <thead>
                         <tr>
                             <th>No</th>
+                            <th>Kode</th>
                             <th>Judul</th>
                             <th>Tanggal Terbit</th>
                             <th>Stok</th>
@@ -34,6 +35,7 @@
                         @foreach($book as $key => $row)
                             <tr>
                                 <td>{{ ($book->currentpage()-1) * $book->perpage() + $key + 1 }}</td>
+                                <td>{{$row->code}}</td>
                                 <td>{{$row->title}}</td>
                                 <td>{{dateFormat($row->date_of_issue)}}</td>
                                 <td>{{$row->stock}}</td>

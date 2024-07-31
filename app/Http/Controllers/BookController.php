@@ -82,4 +82,9 @@ class BookController extends Controller
             return redirect(route('book.index'))->with('msg', ['danger','Gagal ubah buku']);
         }
     }
+
+    public function detail($uuid)
+    {
+        return Book::where('code',$uuid)->first();
+    }
 }

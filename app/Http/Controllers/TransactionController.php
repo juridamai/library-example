@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ItemTransaction;
 use Illuminate\Http\Request;
 
 #import model
@@ -9,11 +10,12 @@ use App\Models\Transaction;
 use App\Models\Book;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
+use App\Models\Customer;
 
 class TransactionController extends Controller
 {
     public function index(){
-        $transaction = Transaction::with('customer')->paginate(10);
+        $transaction = Transaction::with('customer')->orderBy('status','desc')->paginate(10);
         return view('backend.content.transaction.list',compact('transaction'));
     }
 
@@ -23,7 +25,42 @@ class TransactionController extends Controller
     }
 
     public function create(){
-        return view('backend.content.transaction.create');
+        $customer = Customer::all();
+        $book = Book::where('stock','>',0)->get();
+        return view('backend.content.transaction.create',compact('customer','book'));
+    }
+
+    public function store(Request $request){
+        DB::beginTransaction();
+
+        try{
+            //semua proses insert
+            $send = $request->send;
+            $customer_id = $request->customer_id;
+
+            $mustReturn = Carbon::now()->addDays(7);
+
+            $transaction = new Transaction();
+            $transaction->date = Carbon::now()->toDateString();
+            $transaction->date_must_return = $mustReturn->toDateString();
+            $transaction->customer_id = $customer_id;
+            $transaction->save();
+
+            foreach ($send as $i){
+                $item = new ItemTransaction();
+                $item->book_id = intval($i['book_id']);
+                $item->qty = 1;
+                $item->transaction_id = $transaction->id;
+                $item->save();
+            }
+
+            DB::commit();
+            return redirect(route('transaction.index'))->with('msg', ['success','Berhasil pinjam buku']);
+
+        }catch (\Exception $e){
+            DB::rollBack();
+            return redirect(route('transaction.index'))->with('msg', ['danger','Gagal pinjam buku']);
+        }
     }
 
     public function return(Request $request)

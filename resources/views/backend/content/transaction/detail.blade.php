@@ -66,7 +66,7 @@
                     </form>
                 @endif
 
-                <a href="{{route('transaction.index',$transaction->id)}}" class="btn btn-sm btn-secondary"><i class="fa fa-arrow-circle-left"></i> Kembali</a>
+                <a href="{{route('transaction.index')}}" class="btn btn-sm btn-secondary"><i class="fa fa-arrow-circle-left"></i> Kembali</a>
 
             </div>
         </div>
