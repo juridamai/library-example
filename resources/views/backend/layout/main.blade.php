@@ -85,6 +85,12 @@
                 <span>Data Customer</span></a>
         </li>
 
+        <li class="nav-item">
+            <a class="nav-link" href="{{route('transaction.index')}}">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Data Transaksi</span></a>
+        </li>
+
 
     </ul>
     <!-- End of Sidebar -->

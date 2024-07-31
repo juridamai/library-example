@@ -54,6 +54,13 @@ Route::group(['middleware' => 'auth:user'], function () {
         Route::get('/customer/edit/{id}', [App\Http\Controllers\CustomerController::class, 'edit'])->name('customer.edit');
         Route::post('/customer/update', [App\Http\Controllers\CustomerController::class, 'update'])->name('customer.update');
 
+
+        Route::get('/transaction', [App\Http\Controllers\TransactionController::class, 'index'])->name('transaction.index');
+        Route::get('/transaction/detail/{id}', [App\Http\Controllers\TransactionController::class, 'detail'])->name('transaction.detail');
+        Route::get('/transaction/create', [App\Http\Controllers\TransactionController::class, 'create'])->name('transaction.create');
+        Route::post('/transaction/store', [App\Http\Controllers\TransactionController::class, 'store'])->name('transaction.store');
+        Route::post('/transaction/return', [App\Http\Controllers\TransactionController::class, 'return'])->name('transaction.return');
+
     });
 
     Route::get('/logout', [App\Http\Controllers\AuthController::class, 'logout'])->name('auth.logout');
