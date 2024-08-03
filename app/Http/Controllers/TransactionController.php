@@ -47,8 +47,14 @@ class TransactionController extends Controller
             $transaction->save();
 
             foreach ($send as $i){
+
+                #min stock
+                $book_id = $i['book_id'];
+                $book = Book::findOrFail($book_id);
+                $book->reduceStock();
+
                 $item = new ItemTransaction();
-                $item->book_id = intval($i['book_id']);
+                $item->book_id = $book_id;
                 $item->qty = 1;
                 $item->transaction_id = $transaction->id;
                 $item->save();
